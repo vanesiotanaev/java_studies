@@ -34,18 +34,24 @@ public class hw_3 {
         int destValue = 2022;
         int plusValue = 56;
         int multiplier = 11;
-        // Проверка, чтобы plusValue (то, что мы прибавляем) была больше, чем multiplier (то, на что умножаем)
-        if (plusValue <= multiplier) {
-            long[] array = CreateArray(destValue, startValue, plusValue, multiplier);
-            LongArrayOutput(array);
-
-            System.out.print("Количество возможных путей: ");
-            System.out.println(array[destValue]);
-        // Иначе количество возможных путей до destValue будет равняться нулю.
+        
+        if (startValue >= destValue) {
+            System.out.print("Ошибка во вводных данных!");
         } else {
-            System.out.print("Количество возможных путей: 0");
-        }   
+            // Проверка, чтобы plusValue (то, что мы прибавляем) была больше, чем multiplier (то, на что умножаем)
+            if (plusValue <= multiplier) {
+                long[] array = CreateArray(destValue, startValue, plusValue, multiplier);
+                LongArrayOutput(array);
+
+                System.out.print("Количество возможных путей: ");
+                System.out.println(array[destValue]);
+                // Иначе количество возможных путей до destValue будет равняться нулю.
+                } else {
+                    System.out.print("Количество возможных путей: 0");
+                }   
+            }
         }
+        
 
         // Логика
         public static long[] CreateArray(int size, int startValue, int plusValue, int multiplier) {
